@@ -1,6 +1,6 @@
 <?php
-	@error_reporting(E_ERROR);
 	@header("Content-type: application/json; charset=utf-8");
+	@error_reporting(0);
 
 	require './lib/lastRSS.class.php';
 
@@ -88,6 +88,11 @@
 
 	// page=1 pagesize=10 => 0-9  start=(page-1)*pagesize
 	// page=2 pagesize=10 => 10-19
+
+	if(count($result) <= $start){
+		// 无数据
+		echo json_encode(array());exit();
+	}
 
 	$output = array_slice($result, $start, $pagesize);
 
