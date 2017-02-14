@@ -44,10 +44,15 @@
 	 * @mode 模式 simple只输出图片url，full输出title等 默认simple
 	 */
 	$mode = isset($_GET['mode']) && $_GET['mode'] == 'full' ? 'full' : 'simple';
+	
+	/**
+	 * @refresh 是否刷新缓存
+	 */
+	$refreshCache = isset($_GET['refresh']) && $_GET['refresh'] == 'true' ? true : false;
 
 	$rss=new lastRSS();
 	$rss->cache_dir = 'cache';      //设置缓存目录，要手动建立
-	$rss->cache_time = 1800;        //设置缓存时间。默认为0，即随访问更新缓存；建议设置为3600，一个小时
+	$rss->cache_time = $refreshCache ? 0 : 1800;        //设置缓存时间。默认为0，即随访问更新缓存；建议设置为3600，一个小时
 	$rss->default_cp = 'UTF-8';     //设置RSS字符编码，默认为UTF-8
 	$rss->cp = 'UTF-8';               //设置输出字符编码，默认为GBK
 	$rss->items_limit = 50;         //设置输出数量，默认为10

@@ -6,6 +6,10 @@
 
 Lofter上有很多美图，特意做了这个，功能就是从LOFTER上获取图片地址，以json的形式输出。
 
+## 文档
+
+[Docs](http://mypic.4host.cn/doc)
+
 ## Demo
 
 [Demo](http://mypic.4host.cn/demo)
@@ -67,6 +71,13 @@ Lofter上有很多美图，特意做了这个，功能就是从LOFTER上获取�
 |list |array    | 文章中的图片Url列表 |
 
 
+## 缓存配置
+
+缓存默认开启（文件）
+
+缓存文件夹为`cache`文件夹，需保证可写。
+
+默认缓存时间为`1800`秒，即30分钟
 
 ---------------------
 

@@ -2,7 +2,6 @@
 return array(
 	"jyjxgw",
 	"yu-zu-mei",
-	"felixbg",
 	"128ilu",
 	"cairei2016",
 	"hua8013",
@@ -13,5 +12,4 @@ return array(
 	"485083688",
 	"wbd941",
 	"xjx1687",
-	"bobch",
 );

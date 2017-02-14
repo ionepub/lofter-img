@@ -18,6 +18,7 @@
 			<h3>
 				LOFTER图片API 接口测试工具
 			</h3>
+			<blockquote><p>接口调试工具不缓存数据</p></blockquote>
 			<h5><a href="/doc"><i class="icon-hand-right"></i> 查看API接口文档</a></h5>
 			<form class="form-horizontal" action="#" method="get">
 				<div class="control-group">
@@ -69,10 +70,9 @@
 			<div>
 				<code>jyjxgw</code>
 				<code>yu-zu-mei</code>
-				<code>felixbg</code>
 				<code>128ilu</code>
 				<code>cairei2016</code>
-				<code>hua8013</code>
+				<code></code>
 				<code>chijingnv</code>
 				<code>t63168494</code>
 				<code>summer-night-star</code>
@@ -80,7 +80,6 @@
 				<code>485083688</code>
 				<code>wbd941</code>
 				<code>xjx1687</code>
-				<code>bobch</code>
 			</div>
 			<br>
 			<p class="text-center"><a href="https://github.com/ionepub" target="_blank">GitHub</a> | <a href="https://github.com/ionepub/lofter-img/issues" target="_blank">Issues</a></p>
@@ -97,7 +96,8 @@ $(function(){
 			"name": $("#name").val(),
 			"mode": $("#mode").val(),
 			"page": $("#page").val(),
-			"pagesize": $("#pagesize").val()
+			"pagesize": $("#pagesize").val(),
+			"refresh": true
 		};
 		$.get("/api.php", data, function(response){
 			response = JSON.stringify(response);
