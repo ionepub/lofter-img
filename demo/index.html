@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DEMO & 接口测试工具 - LOFTER图片 API</title>
+	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<style type="text/css">
+	body{font-family: microsoft yahei;}
+	.form-horizontal{border: 1px solid #ccc;padding: 30px 0;}
+	.response{padding: 30px;}
+	</style>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<h3>
+				LOFTER图片API 接口测试工具
+			</h3>
+			<h5><a href="/doc"><i class="icon-question-sign"></i> 查看API接口文档</a></h5>
+			<form class="form-horizontal" action="#" method="get">
+				<div class="control-group">
+					 <label class="control-label" for="name">接口请求地址</label>
+					<div class="controls">
+						<code>http://mypic.4host.cn/api.php</code>
+					</div>
+				</div>
+				<div class="control-group">
+					 <label class="control-label" for="name">* Lofter博客名称</label>
+					<div class="controls">
+						<input id="name" name="name" type="text" value="9mouth" />
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;如地址为 <code>http://9mouth.lofter.com</code>，则<code>name</code>参数填入<code>9mouth</code>即可</span>
+					</div>
+				</div>
+				<div class="control-group">
+					 <label class="control-label" for="mode">输出json模式</label>
+					<div class="controls">
+						<select id="mode" name="mode">
+							<option value="simple" selected="">Simple</option>
+							<option value="full">Full</option>
+						</select>
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;<code>simple</code> (默认) 仅输出图片Url数组，<code>full</code> 输出文章标题、链接和图片Url数组</span>
+					</div>
+				</div>
+				<div class="control-group">
+					 <label class="control-label" for="pagesize">分页大小</label>
+					<div class="controls">
+						<input id="pagesize" name="pagesize" type="number" min="1" max="50" value="10" />
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;默认<code>pagesize=10</code>，最大可为50</span>
+					</div>
+				</div>
+				<div class="control-group">
+					 <label class="control-label" for="page">* 当前页码</label>
+					<div class="controls">
+						<input id="page" name="page" type="number" min="1" value="1"/>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<button type="submit" class="btn">发送请求</button>
+					</div>
+				</div>
+			</form>
+			<h4>返回值</h4>
+			<div class="form-horizontal response"></div>
+			<hr>
+			<h5>Lofter博客id列表（福利向）</h5>
+			<div>
+				<code>jyjxgw</code>
+				<code>yu-zu-mei</code>
+				<code>felixbg</code>
+				<code>128ilu</code>
+				<code>cairei2016</code>
+				<code>hua8013</code>
+				<code>chijingnv</code>
+				<code>t63168494</code>
+				<code>summer-night-star</code>
+				<code>wuming3175</code>
+				<code>485083688</code>
+				<code>wbd941</code>
+				<code>xjx1687</code>
+				<code>bobch</code>
+			</div>
+			<br>
+			<p class="text-center"><a href="https://github.com/ionepub" target="_blank">GitHub</a> | <a href="https://github.com/ionepub/lofter-img/issues" target="_blank">Issues</a></p>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+	$("form").submit(function(){
+		if($("#name").val() == ""){
+			alert("Lofter博客名称不能为空");
+		}
+		var data = {
+			"name": $("#name").val(),
+			"mode": $("#mode").val(),
+			"page": $("#page").val(),
+			"pagesize": $("#pagesize").val()
+		};
+		$.get("/api.php", data, function(response){
+			response = JSON.stringify(response);
+			$(".response").html('<pre>'+ response +'</pre>');
+			return false;
+		})
+		return false;
+	})
+})
+</script>
+</body>
+</html>

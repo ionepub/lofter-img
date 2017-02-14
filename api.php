@@ -1,6 +1,6 @@
 <?php
 	@header("Content-type: application/json; charset=utf-8");
-	@error_reporting(0);
+	error_reporting(0);
 
 	require './lib/lastRSS.class.php';
 

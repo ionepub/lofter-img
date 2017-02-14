@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文档 - 网易LOFTER图片链接获取</title>
+<link rel="stylesheet" href="./themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+<style type="text/css">
+body{
+  font-family: "Source Sans Pro","microsoft yahei",sans-serif;
+}
+</style>
+</head>
+<body><div class="container"><h1 id="网易lofter图片链接获取">LOFTER图片 API文档</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#网易lofter图片链接获取">网易LOFTER图片链接获取</a><ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#api参数">API参数</a></li>
+<li><a href="#返回值">返回值</a><ul>
+<li><a href="#simple-mode">simple mode</a></li>
+<li><a href="#full-mode">full mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="简介">简介</h2>
+
+<p>Lofter上有很多美图，特意做了这个，功能就是从LOFTER上获取图片地址，以json的形式输出。</p>
+
+
+
+<h2 id="demo">Demo</h2>
+
+<p><a href="/demo">Demo</a></p>
+
+
+
+<h2 id="api参数">API参数</h2>
+
+<ul>
+<li><p><strong>name</strong></p>
+
+<ul><li>LOFTER名称，Required 必填参数</li>
+<li>如地址为 <code>http://9mouth.lofter.com</code>，则<code>name</code>参数填入<code>9mouth</code>即可</li></ul></li>
+<li><p><strong>mode</strong></p>
+
+<ul><li>输出json模式，可选</li>
+<li>可选项：</li>
+<li><code>simple</code> (默认) 仅输出图片Url数组</li>
+<li><code>full</code> 输出文章标题、链接和图片Url数组</li></ul></li>
+<li><p><strong>pagesize</strong></p>
+
+<ul><li>分页大小，可选</li>
+<li>默认<code>pagesize=10</code>，最大可为50</li></ul></li>
+<li><p><strong>page</strong></p>
+
+<ul><li>当前页码，Required 必填参数</li>
+<li>默认<code>page=1</code></li></ul></li>
+</ul>
+
+
+
+<h2 id="返回值">返回值</h2>
+
+
+
+<h3 id="simple-mode">simple mode</h3>
+
+
+
+<pre class="prettyprint"><code class="language-json hljs ">[
+ <span class="hljs-string">"http://demo.jpg"</span>,
+ <span class="hljs-string">"http://demo2.jpg"</span>,
+ <span class="hljs-string">"http://demo3.jpg"</span>
+]</code></pre>
+
+
+
+<h3 id="full-mode">full mode</h3>
+
+
+
+<pre class="prettyprint"><code class="language-json hljs ">[
+    {
+        "<span class="hljs-attribute">title</span>":<span class="hljs-value"><span class="hljs-string">"图片"</span></span>,
+        "<span class="hljs-attribute">date</span>":<span class="hljs-value"><span class="hljs-string">"2017-02-13 22:13:32"</span></span>,
+        "<span class="hljs-attribute">link</span>":<span class="hljs-value"><span class="hljs-string">"http://9mouth.lofter.com/post/11c344_e350819"</span></span>,
+        "<span class="hljs-attribute">list</span>":<span class="hljs-value">[
+            <span class="hljs-string">"http://imglf1.nosdn.127.net/img/bzdNQ3lVZUc4R1QzdWJ4c3BUTGpuUjk4OGRMZTZUcitqZEhEbi9mTDJpbWNGYTMvM0hMT3VRPT0.jpg"</span>
+        ]
+    </span>}
+]</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数名</th>
+  <th align="left">类型</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">title</td>
+  <td align="left">string</td>
+  <td>LOFTER文章标题</td>
+</tr>
+<tr>
+  <td align="left">date</td>
+  <td align="left">string</td>
+  <td>文章发布时间</td>
+</tr>
+<tr>
+  <td align="left">link</td>
+  <td align="left">string</td>
+  <td>文章链接</td>
+</tr>
+<tr>
+  <td align="left">list</td>
+  <td align="left">array</td>
+  <td>文章中的图片Url列表</td>
+</tr>
+</tbody></table>
+
+
+<hr>
+
+
+
+<h3 id="报错">报错</h3>
+
+<p><a href="https://github.com/ionepub/lofter-img/issues">Github Issues</a></p></div></body>
+</html>
