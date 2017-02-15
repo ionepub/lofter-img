@@ -101,5 +101,11 @@
 
 	$output = array_slice($result, $start, $pagesize);
 
-	echo json_encode($output);
+	if(isset($_GET['callback']) && $_GET['callback'] != ""){
+		// jsonp请求
+		echo $_GET['callback'] . '(' . json_encode($output) . ')';
+	}else{
+		echo json_encode($output);
+	}
+	
 	exit();

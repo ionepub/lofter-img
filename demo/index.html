@@ -20,6 +20,13 @@
 			</h3>
 			<blockquote><p>接口调试工具不缓存数据</p></blockquote>
 			<h5><a href="/doc"><i class="icon-hand-right"></i> 查看API接口文档</a></h5>
+			<h4>请求示例（jsonp）</h4>
+			<div class="form-horizontal" style="padding: 30px;">
+				<pre><code>$.getJSON("http://mypic.4host.cn/api.php?name=9mouth&callback=?", function(data){
+	console.log(data);
+});</code></pre>
+			</div>
+			<h4>接口调试</h4>
 			<form class="form-horizontal" action="#" method="get">
 				<div class="control-group">
 					 <label class="control-label" for="name">接口请求地址</label>
